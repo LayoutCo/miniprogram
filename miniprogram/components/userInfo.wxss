@@ -1,0 +1,41 @@
+/* components/userInfo.wxss */
+
+.userinfo-container {
+  margin-bottom: 60px;
+  overflow-y: scroll;
+}
+
+.slide {
+  margin: 20px;
+}
+
+.page-section {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.form-title {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  border-bottom: 1px #eee solid;
+}
+
+.form-picker {
+  margin-left: 20px;
+  float: right;
+  display: inline-block;
+}
+
+.slide-text {
+  display: flex;
+  justify-content: space-evenly;
+  color: #333;
+  font-size: 14px;
+}
+.swiper-tab {
+  padding: 0 20px;
+}

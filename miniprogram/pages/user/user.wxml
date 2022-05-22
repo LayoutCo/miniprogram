@@ -1,0 +1,15 @@
+<!--user.wxml-->
+<view class="user-container">
+  <view class="userinfo" >
+  <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+  <open-data class="userinfo-nickname" type="userNickName"></open-data>
+  </view>
+</view>
+<view class="user-center" >
+  <view hover="true" wx:for="{{motto}}" wx:key="id" hover-class="info-list-hover" class="info-list" data-tab="{{item.id}}" bindtap="listTap" >
+  <image  class="info-img" src="{{item.icon}}"></image>
+  <text class="info-text" >{{item.name}}</text>
+  </view>
+</view>
+<import src="../../tabbar/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>

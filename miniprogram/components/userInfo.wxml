@@ -1,0 +1,78 @@
+<!--components/userInfo.wxml-->
+<view class="userinfo-container">
+<view class="slide" data-current="0" hidden="{{currentTab!=0}}">
+  <view class="page-section">
+    <view class="form-title">学校</view>
+    <input class="form-input" auto-focus placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">学院</view>
+    <input class="form-input" placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">专业</view>
+    <input class="form-input" placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">入学年份</view>
+    <input class="form-input" type="number" placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">班级</view>
+    <input class="form-input" type="number" placeholder=""/>
+  </view>
+</view>
+<view class="slide" data-current="1" hidden="{{currentTab!=1}}">
+  <view class="page-section">
+    <view class="form-title">当前公司</view>
+    <input class="form-input" auto-focus placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">职位</view>
+    <input class="form-input" placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">入职年份</view>
+    <input class="form-input" type="number" placeholder=""/>
+  </view>
+</view>
+<view class="slide" data-current="2" hidden="{{currentTab!=2}}">
+   <view class="page-section">
+    <view class="form-title">联系电话</view>
+    <picker class="form-picker" bindchange="bindPickerChange" data-index="phone" value="{{index.phone}}" range="{{permissions}}">
+      <view >
+        {{permissions[index.phone]}}
+      </view>
+    </picker>
+    <input class="form-input" type="number" auto-focus placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">邮箱</view>
+        <picker class="form-picker" bindchange="bindPickerChange" data-index="mail" value="{{index.mail}}" range="{{permissions}}">
+      <view >
+        {{permissions[index.mail]}}
+      </view>
+    </picker>
+    <input class="form-input" placeholder=""/>
+  </view>
+  <view class="page-section">
+    <view class="form-title">微信</view>
+    <picker class="form-picker" bindchange="bindPickerChange" data-index="wx" value="{{index.wx}}" range="{{permissions}}">
+      <view >
+        {{permissions[index.wx]}}
+      </view>
+    </picker>
+    <input class="form-input" placeholder=""/>
+  </view>
+</view>
+<view class="slide" data-current="3" hidden="{{currentTab!=3}}">
+确定
+</view>
+
+<view class="slide-text">
+<view class="swiper-tab" data-action="prev" bindtap="swichNav">prev</view>
+<text>{{currentTab+1+"/4"}}</text>
+<view class="swiper-tab" data-action="next" bindtap="swichNav">next</view>
+</view>
+
+</view>

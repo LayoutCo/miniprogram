@@ -1,0 +1,32 @@
+<!--discover.wxml-->
+<view class="loading spinner" hidden="{{loadingHidden}}">
+<view class="rect1"></view>
+<view class="rect2"></view>
+<view class="rect3"></view>
+<view class="rect4"></view>
+<view class="rect5"></view>
+</view>
+
+<view class="item-container">
+<text class="item-title">嘉宾</text>
+</view>
+
+<view class="guest-container">
+  <view class="guestinfo" wx:for="{{guestInfo}}" wx:key="id">
+    <image class="guestinfo-avatar" alt="item.head_image" src="{{item.head_image}}" background-size="cover" data-guest="{{item}}" bindtap="guestDetail"></image>
+  </view>
+</view>
+
+<view class="nav-top">
+<text class="nav-text">Xi’an Calling</text>
+<text class="nav-text">International Exhibition of Art and Design</text>
+</view>
+
+<view class="info-container">
+<view class="info-view" wx:for="{{actData}}" wx:key="id" wx:if="{{item.category == 6}}" data-id="{{item}}" bindtap="skdDetail">
+<image class="info-img" style="height:{{exHeights}}px" alt="item.head_image" src="{{item.cover_image_url}}" background-size="cover"></image>
+</view>
+</view>
+
+<import src="../../tabbar/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>

@@ -1,0 +1,85 @@
+<!--dashi.wxml-->
+<view class="banner-swiper" style="height:{{imgheights}}px;">
+<image src="{{dashiImg}}" style="height:{{imgheights}}px" bindload="imageLoad" class="banner-img" />
+</view>
+
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">9月29日</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">9月30日</view>
+</view>
+<view class="loading spinner" hidden="{{loadingHidden}}">
+<view class="rect1"></view>
+<view class="rect2"></view>
+<view class="rect3"></view>
+<view class="rect4"></view>
+<view class="rect5"></view>
+</view>
+<view class="swiper-box"  style="min-height:{{(winHeight-280)+'px'}}" hidden="{{!loadingHidden}}">
+
+  <view class="info-view" wx:for="{{actData}}" wx:key="id" wx:if="{{item.id == 171}}" data-id="{{item}}" hidden="{{currentTab!=='0'}}">
+  <text class="title-text ">{{item.title}}</text>
+  <text class="second-text ">Designing Experiences for Immersive Theater</text>
+  <text class="info-text info-time" >{{item.meeting_time}}</text>
+
+  <view class="guest-info">
+  <text wx:for="{{item.guest_info_list}}" wx:key="id" class="info-text info-guest">{{item.name}}</text>
+  </view>
+
+  <view class="guest-info">
+  <image  wx:for="{{item.guest_info_list}}" style="height:{{itemheights}}px" wx:key="id" class="info-img" alt="head_image" src="{{item.head_image}}" background-size="cover" ></image>
+  </view>
+
+  <view class="detail-container">
+  <text class="detail-title" >课程简述</text>
+  <view wx:for="{{item.content}}" wx:key="id">
+  <image wx:if="{{item.type=='image'}}" bindload="itemLoad" class="detail-img" alt="item.content" src="{{item.content}}" style="height:{{itemheights}}px;" background-size="cover"></image>
+  <video wx:elif="{{item.type=='video'}}" class="video-item" poster="{{posterUrl}}" style="height:{{videoheight}}px" src="{{item.content}}" controls></video>
+  <text wx:else class="detail-text">{{item.content}}</text>
+  </view>
+
+  <text class="detail-info-title">适宜人群</text>
+  <text class="detail-info">戏剧从业者、表演艺术爱好者</text>
+  <text class="detail-info-title">Target audience</text>
+  <text class="detail-info">Theater Specialists, Performing Arts Enthusiasts</text>
+  </view>
+
+  </view>
+
+
+
+
+  <view class="info-view" wx:for="{{actData}}" wx:key="id" wx:if="{{item.id == 181}}" data-id="{{item}}" hidden="{{currentTab!=='1'}}">
+  <text class="title-text ">{{item.title}}</text>
+  <text class="second-text ">HUMAN(S) at the Crossroads of Technology and Art ：Time Loops and Super-Intelligence</text>
+  <text class="info-text info-time" >{{item.meeting_time}}</text>
+
+  <view class="guest-info">
+  <text wx:for="{{item.guest_info_list}}" wx:key="id" class="info-text info-guest">{{item.name}}</text>
+  </view>
+
+  <view class="guest-info">
+  <image  wx:for="{{item.guest_info_list}}" style="height:{{itemheights}}px" wx:key="id" class="info-img" alt="head_image" src="{{item.head_image}}" background-size="cover" ></image>
+  </view>
+
+  <view class="detail-container">
+  <text class="detail-title" >课程简述</text>
+  <view wx:for="{{item.content}}" wx:key="id">
+  <image wx:if="{{item.type=='image'}}" bindload="itemLoad" class="detail-img" alt="item.content" src="{{item.content}}" style="height:{{itemheights}}px;" background-size="cover"></image>
+  <video wx:elif="{{item.type=='video'}}" class="video-item" poster="{{posterUrl}}" style="height:{{videoheight}}px" src="{{item.content}}" controls></video>
+  <text wx:else class="detail-text">{{item.content}}</text>
+  </view>
+
+  <text class="detail-info-title">适宜人群</text>
+  <text class="detail-info"> 先锋艺术爱好者、对AR/VR感兴趣的人群</text>
+  <text class="detail-info-title">Target audience</text>
+  <text class="detail-info">Avant-Garde, AR and VR Enthusiasts</text>
+  </view>
+
+  </view>
+
+
+
+
+</view>
+<import src="../../tabbar/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>
